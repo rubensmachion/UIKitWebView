@@ -6,9 +6,14 @@ class WebViewController: UIViewController {
     // MARK: - UI
     private let webView: WKWebView = {
         let configuration = WKWebViewConfiguration()
-        configuration.allowsPictureInPictureMediaPlayback = false
-        configuration.allowsAirPlayForMediaPlayback = false
-        configuration.allowsInlineMediaPlayback = false
+
+
+        configuration.allowsAirPlayForMediaPlayback = true
+        configuration.allowsInlineMediaPlayback = true
+        configuration.allowsPictureInPictureMediaPlayback = true
+        configuration.ignoresViewportScaleLimits = true
+        configuration.preferences.isFraudulentWebsiteWarningEnabled = false
+
 
         let view = WKWebView(frame: .zero, configuration: configuration)
         view.translatesAutoresizingMaskIntoConstraints = false
